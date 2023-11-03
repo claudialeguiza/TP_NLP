@@ -1,4 +1,4 @@
-# TUIA - Procesamiento del Lenguaje Natural
+# TUIA - Procesamiento del Lenguaje Natural - 2023
 
 ## Trabajo Práctico Nº 1
 "Procesamiento del Lenguaje"
@@ -46,3 +46,36 @@ Justifique la elección del modelo usado para tal fin.
 **Opcional**: Investigar y programar un bot de Telegram que entregue un resumen de noticias del blog de su elección.
 
 Recomendamos el uso de [pyTelegramBotAPI](https://github.com/eternnoir/pyTelegramBotAPI). 
+
+
+# Desarrollo del TP
+
+## Web Scraping
+
+El scraping de los textos se realiza sobre el portal de noticias [Clarin](https://www.clarin.com). En particular, en las secciones correspondientes a Economía, Política, Sociedad y Deportes. 
+Para este trabajo se extraen diez (10) artículos de cada categoría y se procesan con las herramientas provistas por la cátedra.
+
+**NOTA**: Los primeros bloques de código que corresponden al web scraping, la confección del dataframe y la generación del archivo csv **SE EJECUTAN UNA SOLA VEZ**, por lo que pueden aparecer comentados en el proyecto. A partir de allí, el resto del trabajo se realiza sobre la carga y procesamiento de esos mismos datos.
+
+### DataFrame | CSV
+Luego de realizado el scraping, los datos son volcados a un dataframe que servirá para exportar un archivo csv. Este proceso se realiza por única vez (o cada vez que se deseen actualizar los registros de las noticias). 
+
+Para agilizar las tareas posteriores de procesamiento, el resto del código ofrece la posibilidad de importar archivos de tipo csv a un nuevo dataframe. Este paso es necesario para permitir trabajar con diferentes archivos, sin necesidad de realizar el scraping cada vez.
+
+### Procesamiento de los datos
+[agregar]
+
+## Modelo de Clasificación
+[agregar]
+
+## Normalización y Limpieza
+[agregar]
+
+## Análisis de similitudes
+[agregar]
+
+## Resúmenes por categoría
+[agregar]
+
+
+
