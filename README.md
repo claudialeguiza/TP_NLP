@@ -83,6 +83,7 @@ En esta sección, se describe el proceso de creación y evaluación del modelo d
 
 **Evaluación del Modelo**: Se evalúa el rendimiento del modelo utilizando el conjunto de prueba (x_test, y_test). Se calcula la precisión (accuracy) y se genera un informe de clasificación que incluye métricas como precisión, recall y F1-score. Además, se prueba el modelo utilizando un conjunto de noticias nuevas para verificar su capacidad de predicción en la clasificación de noticias en las secciones correspondientes.
 
+![Métricas del Modelo](/modelo_metricas.png)
 
 ## Normalización y Limpieza
 
@@ -96,6 +97,11 @@ En esta sección, se describe el proceso de creación y evaluación del modelo d
 
 ## Análisis del texto
 En esta sección se realiza un recuento de las palabras de los textos y se muestra la importancia de ellas mediante una nube de palabras para cada categoría realizada con la librería WordCloud.
+
+![Deportes](/nube_deportes.png)
+![Economía](/nube_economia.png)
+![Política](/nube_politica.png)
+![Sociedad](/nube_sociedad.png)
 
 
 ## Análisis de similitudes
