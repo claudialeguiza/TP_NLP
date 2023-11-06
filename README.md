@@ -111,7 +111,13 @@ En esta sección, se lleva a cabo la evaluación de similitudes entre los títul
 
 
 ## Resúmenes por categoría
-[agregar]
+En esta sección se realiza la generación de resúmenes de noticias por categoría. 
+
+**Selección del Modelo de Generación de Resúmenes**: Se utiliza el modelo "csebuetnlp/mT5_multilingual_XLSum" para generar resúmenes de noticias. Este modelo es capaz de producir resúmenes multilingües de alta calidad. La elección de este modelo se justifica por su capacidad multilingüe, calidad, flexibilidad y rendimiento en la generación de resúmenes.
+
+**Resúmenes de una categoría particular**: Se implementa un script preliminar que permite al usuario seleccionar una categoría en particular. El script genera resúmenes de todas las noticias que pertenecen a la categoría elegida. Esto facilita la obtención de resúmenes específicos para una categoría de noticias.
+
+**Resúmenes Interactivos**: Se desarrolla otro script actualizado que brinda al usuario la capacidad de elegir una cantidad de noticias y su categoría. 
 
 
 
