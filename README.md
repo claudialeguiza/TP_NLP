@@ -63,16 +63,52 @@ Luego de realizado el scraping, los datos son volcados a un dataframe que servir
 Para agilizar las tareas posteriores de procesamiento, el resto del código ofrece la posibilidad de importar archivos de tipo csv a un nuevo dataframe. Este paso es necesario para permitir trabajar con diferentes archivos, sin necesidad de realizar el scraping cada vez.
 
 ### Procesamiento de los datos
-[agregar]
+En esta sección, se lleva a cabo el procesamiento de los datos extraídos del web scraping. Este paso es esencial para preparar los textos de las noticias para su posterior análisis.
+
+Se realizan tareas de conversión a minúsculas, eliminación de espacios en blanco, de acentos y signos de puntuación.
+
+Este proceso de limpieza garantiza que los textos estén listos para ser procesados de manera consistente y se minimizan las posibles fuentes de ruido en el análisis posterior. Los datos limpios se utilizan como punto de partida para tareas de NLP, como la aplicación del modelo de clasificación.
+
 
 ## Modelo de Clasificación
-[agregar]
+En esta sección, se describe el proceso de creación y evaluación del modelo de clasificación de textos. Las tareas realizadas incluyen:
+
+**Preparación de los Datos**: Se seleccionan los títulos de las noticias (X) y las etiquetas de categoría (y) de la fuente de datos. Además, se realiza una transformación para asegurar que los títulos estén en un formato adecuado.
+
+**Creación del Pipeline**: Se crea un flujo de trabajo (pipeline) que incluye dos pasos: la vectorización de los títulos utilizando CountVectorizer y la clasificación utilizando LogisticRegression. Esto permite la transformación de los títulos en representaciones numéricas y su posterior clasificación.
+
+**División y de Conjunto de Datos**: El conjunto de datos se divide en conjuntos de entrenamiento y prueba (80% para entrenamiento y 20% para prueba) utilizando train_test_split.
+
+**Entrenamiento del Modelo**: El modelo se entrena utilizando el conjunto de entrenamiento (x_train, y_train) a través del pipeline.
+
+**Evaluación del Modelo**: Se evalúa el rendimiento del modelo utilizando el conjunto de prueba (x_test, y_test). Se calcula la precisión (accuracy) y se genera un informe de clasificación que incluye métricas como precisión, recall y F1-score. Además, se prueba el modelo utilizando un conjunto de noticias nuevas para verificar su capacidad de predicción en la clasificación de noticias en las secciones correspondientes.
+
 
 ## Normalización y Limpieza
-[agregar]
+
+**Eliminación de Palabras de Parada**: Se descargan las palabras de parada (stop words) en español utilizando la biblioteca nltk y se implementa una función que elimina las palabras de parada de los textos. Las palabras son tokenizadas y luego se filtran las que están en la lista de palabras de parada, lo que ayuda a reducir el ruido en los textos.
+
+**Tokenización y Lematización**: Se realiza la tokenización de los textos, dividiendo el texto en palabras o tokens individuales. Para la lematización, se utiliza el modelo de lenguaje en español de spaCy. La lematización consiste en reducir las palabras a su forma base o lema, lo que simplifica la comparación de palabras similares.
+
+**Proceso de Normalización**: Se prueba un proceso de normalización adicional que incluye la eliminación de acentos, conversión a minúsculas, eliminación de signos de puntuación y reducción de las palabras a su forma raíz (stemming) mientras se eliminan las palabras de parada.
+
+**Eliminación de Columnas Innecesarias**: Las columnas "título" y "enlace" son eliminadas de los datos, ya que no son necesarias para el análisis posterior.
+
+## Análisis del texto
+En esta sección se realiza un recuento de las palabras de los textos y se muestra la importancia de ellas mediante una nube de palabras para cada categoría realizada con la librería WordCloud.
+
 
 ## Análisis de similitudes
-[agregar]
+En esta sección, se lleva a cabo la evaluación de similitudes entre los títulos de noticias pertenecientes a diferentes temas. Las tareas realizadas son las siguientes:
+
+**Selección del Modelo de Embeddings**: Se utiliza el modelo SentenceTransformer 'distiluse-base-multilingual-cased-v1' para generar representaciones vectoriales de los títulos de noticias. Este modelo es capaz de codificar oraciones en vectores de alta dimensión que capturan la semántica de las oraciones.
+
+**Agrupación de Títulos por Tema**: Los títulos se agrupan por tema. Esto permite comparar la similitud entre los títulos dentro de un mismo tema y entre diferentes temas.
+
+**Cálculo de Similitud**: Se realizan la codificación de las oraciones, el cálculo de las puntuaciones de similitud del coseno entre los embeddings de todas las combinaciones de pares de títulos y el ordenamiento de mayor a menor.
+
+**Presentación de Resultados**: Los resultados se presentan en una tabla que muestra los pares de títulos con las puntuaciones de similitud más altas organizados por categoría. 
+
 
 ## Resúmenes por categoría
 [agregar]
